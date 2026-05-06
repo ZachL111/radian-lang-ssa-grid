@@ -1,0 +1,73 @@
+{
+  "repo": "radian-lang-ssa-grid",
+  "language": "Julia",
+  "category": "Compilers",
+  "goal": "Create a Julia reference implementation for ssa workflows, centered on protocol validation, framed sample traffic, and bounds and ordering tests.",
+  "review_model": {
+    "terms": [
+      "IR pressure",
+      "lowering drift",
+      "stack depth",
+      "diagnostic reach"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "IR pressure",
+      "signal": 80,
+      "slack": 36,
+      "drag": 21,
+      "confidence": 63,
+      "score": 196,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "lowering drift",
+      "signal": 68,
+      "slack": 49,
+      "drag": 20,
+      "confidence": 87,
+      "score": 212,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "stack depth",
+      "signal": 74,
+      "slack": 32,
+      "drag": 18,
+      "confidence": 80,
+      "score": 206,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "diagnostic reach",
+      "signal": 88,
+      "slack": 27,
+      "drag": 15,
+      "confidence": 53,
+      "score": 211,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "IR pressure",
+      "signal": 82,
+      "slack": 29,
+      "drag": 30,
+      "confidence": 59,
+      "score": 162,
+      "lane": "ship"
+    }
+  ]
+}
