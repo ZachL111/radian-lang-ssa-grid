@@ -63,3 +63,9 @@ julia --project=. tests/runtests.jl
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-radian-lang-ssa-detail.ps1
 
 julia --project=. tests/domain_review.jl
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-radian-lang-ssa-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-radian-lang-ssa-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
